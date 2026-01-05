@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Letters 2 God</title></head>
+<body>
+<h1>Submit Prayer Request (Test)</h1>
+<button onclick="submitTest()">Submit Test Request</button>
+<script>
+async function submitTest() {
+  await fetch('/api/notify-moderation', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: 'Sarah M.',
+      location: 'Springfield, US',
+      category: 'Health',
+      requestText: 'Please pray for my sister who is undergoing surgery.',
+      token: Date.now()
+    })
+  });
+  alert('Test request submitted');
+}
+</script>
+</body>
+</html>

@@ -1,24 +1,89 @@
-<!DOCTYPE html>
-<html>
-<head><title>Letters 2 God</title></head>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Letters 2 God • Feed</title>
+  <link rel="stylesheet" href="styles.css?v=v3.23"/>
+</head>
 <body>
-<h1>Submit Prayer Request (Test)</h1>
-<button onclick="submitTest()">Submit Test Request</button>
-<script>
-async function submitTest() {
-  await fetch('/api/notify-moderation', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      name: 'Sarah M.',
-      location: 'Springfield, US',
-      category: 'Health',
-      requestText: 'Please pray for my sister who is undergoing surgery.',
-      token: Date.now()
-    })
-  });
-  alert('Test request submitted');
-}
-</script>
+  <div class="container">
+    <div class="topHeader topHeaderMenu"><img src="header.jpg" alt="Letters 2 God header" />
+      <div class="headerMenuRow">
+        <select id="headerMenuSelect" class="filterSelect headerMenuSelect" aria-label="Menu">
+          <option value=\"\" selected>Menu</option>
+          <option value=\"index.html\">Home</option>
+          <option value=\"about.html\">About</option>
+          <option value=\"gate.html\">Request</option>
+          <option value=\"archive.html\">Archive</option>
+          <option value=\"account.html\">Account</option>
+          <option value=\"contact.html\">Contact</option>
+        </select>
+      </div>
+</div>
+
+    <div class="filtersBar nativeFilters" aria-label="Filters">
+      <select id="countrySelect" class="filterSelect" aria-label="Country filter"></select>
+      <button class="filterBtn" id="categoryBtn" type="button" aria-haspopup="listbox" aria-expanded="false">Categories</button>
+      <div class="dropdownMenu" id="categoryMenu" role="listbox" hidden></div>
+      <select id="categorySelect" class="filterSelect" aria-label="Categories" style="display:none"></select>
+      
+<select id="menuSelect" class="filterSelect" aria-label="Menu">
+  <option value="" selected>Menu</option>
+  <option value="index.html">Home</option>
+  <option value="about.html">About</option>
+  <option value="gate.html">Request</option>
+  <option value="archive.html">Archive</option>
+  <option value="account.html">Account</option>
+  <option value="contact.html">Contact</option>
+</select>
+
+</div>
+
+    <div class="list" id="list"></div>
+  </div>
+
+    <div class="buildStamp">Build v3.11 • 01-02-2026</div>
+
+  <nav class="bottomNav" aria-label="Bottom navigation">
+  <div class="bottomNavInner nav6">
+    <a class="btn navBtn act" data-tone="home" href="index.html">Home</a>
+    <a class="btn navBtn" data-tone="about" href="about.html">About</a>
+    <a class="btn navBtn" data-tone="request" href="gate.html">Request</a>
+    <a class="btn navBtn" data-tone="archive" href="archive.html">Archive</a>
+    <a class="btn navBtn" data-tone="account" href="account.html">Account</a>
+    <a class="btn navBtn" data-tone="contact" href="contact.html">Contact</a>
+  </div>
+</nav>
+
+  <div id="backdrop" class="backdrop" hidden></div>
+  <dialog id="detail" hidden>
+
+  <!-- PRAYER DETAIL CARD (v3) -->
+  <div class="detailCard">
+    <div class="detailTopRow">
+      <div class="detailName" id="dName">Sarah M.</div>
+      <div class="detailCount" id="dCountTop">12 prayers sent</div>
+    </div>
+
+    <div class="detailMeta" id="dMeta">Springfield, US · March 2, 2026</div>
+
+    <div class="detailCategoryRow">
+      <span class="catDot" id="dCatDot" data-cat="Health" aria-hidden="true">H</span>
+      <span class="detailCategory" id="dCategory">Health</span>
+    </div>
+
+    <div class="detailBody" id="dBody"></div>
+
+    <div class="detailActions" aria-label="Prayer actions">
+      <button class="btn primary" id="prayBtn" type="button">🙏 I prayed for this</button>
+      <button class="btn" id="homeBtn" type="button">Return to Home</button>
+    </div>
+  </div>
+
+</dialog>
+
+  <script src="app.js"></script>
+<script></script>
 </body>
 </html>

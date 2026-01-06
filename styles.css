@@ -1,0 +1,2191 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400&display=swap");
+html{height:100%;}
+
+:root{
+  --navSpace: 77px; /* space so bottom nav never covers last request */
+
+  --controlH: 36px;
+  --G: calc(var(--controlH) / 3);
+  --rhythm: var(--controlH);
+
+  /* Brand colors (also used as theme accents) */
+  --brand-letters:#1f1f1f;   /* “Letters” */
+  --brand-two:#2f6f73;       /* “2” */
+  --brand-god:#6b2a32;       /* “God” */
+
+  /* Theme derived from brand */
+  --bg:#f7f4ee;
+  --ink:var(--brand-letters);
+  --accent:var(--brand-two);
+  --accent2:var(--brand-god);
+
+  --muted:#5a5a5a;
+  --line:#e6dfd2;
+  --card:#fffdf8;
+  --shadow: 0 8px 24px rgba(0,0,0,.06);
+  --radius:18px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+  --sans: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+
+*{box-sizing:border-box}
+html,body{min-height:100vh;}
+body{
+  margin:0;
+  font-family: var(--sans);
+  color:var(--ink);
+  background: radial-gradient(1200px 600px at 20% 0%, rgba(0,0,0,.03), transparent 60%),
+              radial-gradient(900px 500px at 85% 15%, rgba(0,0,0,.02), transparent 55%),
+              var(--bg);
+}
+
+a{color:inherit}
+.container{ max-width: 1200px; margin: 0 auto; padding: var(--G) 16px calc(var(--navSpace) + env(safe-area-inset-bottom)); }
+
+.header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom:14px;
+  margin-bottom:18px;
+}
+
+.brand{
+}
+
+.brand .title{
+  font-weight: 400;
+  letter-spacing:.2px;
+  font-size: 26px;
+  line-height: 1.05;
+}
+.brandMark{
+  display:inline-flex;
+  gap:6px;
+  align-items:baseline;
+}
+.brandMark .letters{ color: var(--brand-letters); }
+.brandMark .two{
+  color: var(--brand-two);
+  font-family: var(--sans);
+  font-weight: 400;
+  letter-spacing: .5px;
+}
+.brandMark .god{ color: var(--brand-god); }
+.brand .subtitle{
+  color:var(--muted);
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+.brand{
+
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.brand .title{
+  font-weight: 300;
+  letter-spacing:.2px;
+  font-size: 26px;
+}
+.brand .subtitle{
+  color:var(--muted);
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+.nav{
+  display:flex;
+  gap:10px;
+  flex-wrap:nowrap;
+  justify-content:flex-end;
+}
+.btn{
+  appearance:none;
+  border: 2px solid var(--line);
+  background: transparent;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-family: var(--sans);
+  font-size: 13px;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition: transform .06s ease, background .16s ease;
+}
+.btn:hover{background: rgba(0,0,0,.03)}
+.btn:active{transform: translateY(1px)}
+.btn.primary{
+  background: var(--accent2);
+  color: var(--bg);
+  border-color: var(--accent2);
+}
+.btn.primary:hover{filter: brightness(0.92);}
+.btn.ghost{
+  background: transparent;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap:16px;
+}
+@media (max-width: 900px){
+  .grid{grid-template-columns: 1fr}
+}
+
+.card{
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.card.pad{padding: 16px 16px}
+
+/* Moderation landing pages (Approve / Reject) */
+.moderationCard{
+  max-width: 720px;
+  margin: 18px auto 28px;
+}
+.moderationBody{
+  padding: 2px 0 4px;
+}
+.moderationLine{
+  margin: 0 0 8px;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 200;
+}
+.moderationHint{
+  margin-top: 4px;
+}
+.moderationActions{
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.moderationActions .btn{
+  width: 100%;
+  justify-content: center;
+}
+.moderationCloseHint{
+  text-align: center;
+  margin: 0;
+}
+.sectionTitle{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+  margin: 0 0 10px;
+}
+.sectionTitle h1{
+  margin:0;
+  font-size: 1.9rem;
+  line-height: 1.25;
+  font-weight: 300;
+  font-family: var(--sans);
+}
+
+h2{
+  margin:0;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  letter-spacing:.01em;
+  font-weight: 300;
+  font-family: var(--sans);
+}
+.hint{
+  margin:0;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+.filters{
+  display:flex;
+  gap:10px;
+  flex-wrap:nowrap;
+  padding:12px 12px;
+  border-bottom: 1px solid var(--line);
+}
+.select, .search{
+  font-family: var(--sans);
+  font-size: 13px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 2px solid var(--line);
+  background: rgba(255,255,255,.6);
+}
+.search{flex:1; min-width: 160px}
+.select{min-width: 160px; height: var(--controlH);}
+
+.list{
+  width: 100%;
+}
+
+.item{
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 30px; /* DESKTOP CARD SPACING */
+  box-sizing: border-box;
+}
+
+.item:hover{
+  background: rgba(0,0,0,.03);
+  border-color: var(--line);
+}
+.itemTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 2px solid var(--line);
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--muted);
+  background: rgba(255,255,255,.65);
+}
+.meta{
+  margin-top: 8px;
+  display:flex;
+  gap:10px;
+  flex-wrap:nowrap;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 12px;
+}
+.preview{
+  margin: 10px 0 0;
+  color: var(--ink);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.rightStack{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.kpi{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+}
+.kpi .box{
+  padding: 12px 12px;
+  border-radius: 10px;
+  border: 2px solid var(--line);
+  background: rgba(255,255,255,.55);
+}
+.kpi .num{
+  font-weight: 400;
+  font-size: 20px;
+}
+.kpi .label{
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.formRow{display:flex; flex-direction:column; gap:6px; margin-top: 10px;}
+.label{font-family: var(--sans); font-size: 12px; color: var(--muted);}
+.input, textarea{
+  width:100%;
+  font-family: var(--sans);
+  font-size: 14px;
+  padding: 12px 12px;
+  border-radius: 10px;
+  border: 2px solid var(--line);
+  background: rgba(255,255,255,.65);
+}
+textarea{min-height: 120px; resize: vertical; line-height:1.5}
+
+.footerNote{
+  margin-top: 10px;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 12px;
+  line-height:1.5;
+}
+
+hr.sep{
+  border:none;
+  border-top: 1px solid var(--line);
+  margin: 14px 0;
+}
+
+/* Modal */
+.backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(16,16,16,.38);
+  z-index: 50;
+}
+.backdrop[hidden]{ display:none; }
+dialog{
+  border:none;
+  padding:0;
+  border-radius: 10px;
+  width: min(740px, calc(100% - 24px));
+  box-shadow: 0 18px 60px rgba(0,0,0,.25);
+}
+dialog::backdrop{background: transparent}
+
+/* ================================
+   PRAYER DETAIL CARD (v3)
+   Wording is locked:
+   - "12 prayers sent"
+   - "🙏 I prayed for this"
+   - "Return to Home"
+   Meta format: "City, Country · Date"
+   ================================ */
+
+.detailCard{
+  background: var(--card);
+  border-radius: 22px;
+  padding: 18px 18px 16px;
+}
+
+.detailTopRow{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.detailName{
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.detailCount{
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.detailMeta{
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.detailCategoryRow{
+  margin-top: 12px;
+  display:flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detailCategory{
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 300;
+}
+
+.detailBody{
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.detailActions{
+  margin-top: 18px;
+  display:flex;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.detailActions .btn{ flex: 1 1 auto; }
+
+@media (max-width: 520px){
+  .detailCard{ padding: 16px 16px 14px; }
+  .detailActions{ flex-direction: column; }
+  .detailActions .btn{ width: 100%; }
+
+  /* Optical centering for Manrope on small screens */
+  .detailCard .catDot{ transform: translateY(-0.5px); }
+}
+.modalHead{
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  background: var(--card);
+  border-top-left-radius:22px;
+  border-top-right-radius:22px;
+}
+.modalHead .title{
+  font-weight: 400;
+  font-size: 16px;
+}
+.icon{
+  border: 2px solid var(--line);
+  background: rgba(255,255,255,.65);
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  cursor:pointer;
+  font-family: var(--sans);
+}
+.modalBody{
+  padding: 14px 16px 16px;
+  background: var(--card);
+  border-bottom-left-radius:22px;
+  border-bottom-right-radius:22px;
+}
+.modalBody .bodyText{
+  margin: 10px 0 0;
+  line-height: 1.6;
+  font-size: 16px;
+  font-family: var(--sans);
+}
+.modalActions{
+  display:flex;
+  gap:10px;
+  flex-wrap:nowrap;
+  margin-top: 14px;
+}
+.small{
+  font-family: var(--sans);
+  color: var(--muted);
+  font-size: 12px;
+}
+.pill{
+  font-family: var(--sans);
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 2px solid var(--line);
+  background: rgba(255,255,255,.55);
+  color: var(--muted);
+}
+.notice{
+  padding: 12px 12px;
+  border-radius: 10px;
+  border: 2px solid var(--line);
+  background: rgba(255,255,255,.55);
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height:1.45;
+}
+
+
+/* Subtle accent cues */
+.btn:focus, .select:focus, .search:focus, .input:focus, textarea:focus{
+  outline: 2px solid rgba(47,111,115,.25);
+  outline-offset: 2px;
+}
+.badge{ border-color: rgba(47,111,115,.22); }
+.pill{ border-color: rgba(107,42,50,.18); }
+.backdrop{
+  background: rgba(31,31,31,.35);
+}
+
+
+/* --- Header image --- */
+.topHeader{ margin-bottom: var(--G); }
+.topHeader img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  border: 2px solid var(--line);
+  box-shadow: var(--shadow);
+  background: var(--card);
+}
+
+/* --- Bottom navigation --- */
+.bottomNav{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  background: rgba(247,244,238,.86);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--line);
+}
+.bottomNavInner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 12px calc(12px + env(safe-area-inset-bottom));
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.bottomNav .btn{
+  padding: 10px 12px;
+}
+
+/* Give pages room so content doesn't hide behind bottom nav */
+body{
+  padding-bottom: 78px;
+}
+@media (max-width: 480px){
+  body{ padding-bottom: 108px; }
+}
+
+
+/* Bottom nav buttons: consistent size + muted color */
+.bottomNavInner{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottomNav .navBtn{
+  width: 100%;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 11px 10px;
+  font-weight: 300;
+  letter-spacing: .2px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  border: 2px solid rgba(0,0,0,.08);
+}
+
+/* Soft “ink” button (default) */
+.bottomNav .navBtn{
+  background: rgba(31,31,31,.06);
+  color: var(--ink);
+}
+
+/* Active tab */
+.bottomNav .navBtn.active{
+  background: var(--accent2);
+  color: var(--bg);
+  border-color: rgba(0,0,0,.10);
+}
+
+/* Muted color accents per tab (non-active) */
+.bottomNav .navBtn[data-tone="home"]{ background: rgba(31,31,31,.06); }
+.bottomNav .navBtn[data-tone="request"]{ background: rgba(47,111,115,.12); border-color: rgba(47,111,115,.20); }
+.bottomNav .navBtn[data-tone="archive"]{ background: rgba(107,42,50,.10); border-color: rgba(107,42,50,.18); }
+.bottomNav .navBtn[data-tone="my"]{ background: rgba(31,31,31,.06); border-color: rgba(0,0,0,.10); }
+.bottomNav .navBtn[data-tone="account"]{ background: rgba(47,111,115,.10); border-color: rgba(47,111,115,.16); }
+
+/* Hover states (gentle) */
+.bottomNav .navBtn:hover{ filter: brightness(0.98); }
+.bottomNav .navBtn:active{ transform: translateY(1px); }
+
+@media (max-width: 650px){
+  .bottomNavInner{
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+  }
+  /* Wrap last two on small screens */
+}
+
+
+/* Readability (older-friendly) */
+body{
+  font-size: 18px;
+  line-height: 1.55;
+}
+@media (max-width: 520px){
+  body{ font-size: 17px; }
+}
+.sectionTitle h2{ font-size: 20px; }
+.preview{ font-size: 16px; line-height: 1.55; }
+.meta{ font-size: 14px; }
+.hint, .small{ font-size: 13px; }
+.btn{ font-size: 14px; }
+
+
+/* Category color coding (bright palette) */
+.badge[data-cat="Blessing"]{ background: #01b0f1; border-color: #00729c; color: #111111; }
+.badge[data-cat="Fellowship"]{ background: #feff01; border-color: #a5a500; color: #111111; }
+.badge[data-cat="Financial"]{ background: #92d14f; border-color: #5e8733; color: #111111; }
+.badge[data-cat="Health"]{ background: #ffc000; border-color: #a57c00; color: #111111; }
+.badge[data-cat="Intercession"]{ background: #116aae; border-color: #0b4471; color: #ffffff; }
+.badge[data-cat="Spiritual"]{ background: #7f00ff; border-color: #5200a5; color: #ffffff; }
+.badge[data-cat="Supplication"]{ background: #ff01f5; border-color: #a5009f; color: #111111; }
+.badge[data-cat="Worship"]{ background: #7f00ff; border-color: #5200a5; color: #ffffff; }
+.badge[data-cat="Other"]{ background: #fefffd; border-color: rgba(0,0,0,.18); color: #111111; }
+.badge{ font-weight: 300; }
+
+
+
+/* Home tab: keep readable black text even when active */
+.bottomNav .navBtn[data-tone="home"].active{
+  background: rgba(31,31,31,.08);
+  color: var(--ink);
+  border-color: rgba(0,0,0,.10);
+}
+
+
+/* Feed item framing + typography */
+.item{
+  cursor: pointer;
+  border: 2px solid var(--line);
+  background: rgba(255,255,255,.55);
+  box-shadow: var(--shadow);
+  /* top corners ~600% of bottom corners */
+  border-radius: 10px;
+  padding: 16px 16px 14px;
+}
+.item:hover{
+  background: rgba(255,255,255,.72);
+  border-color: rgba(0,0,0,.10);
+}
+
+.letterLine{
+  font-family: var(--sans);
+  font-size: 28px; /* ~200% of meta line */
+  line-height: 1.25;
+  font-weight: 400; /* not bold */
+  margin: 0;
+}
+
+.metaRow{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap:12px;
+  flex-wrap:nowrap;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 14px;
+}
+.metaRow .spacer{ flex: 1; }
+.sepLine{
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 12px 0 10px;
+}
+
+/* Category dot icon */
+.catDot{
+  margin-left: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: .2px;
+  border: 2px solid rgba(0,0,0,.12);
+  box-shadow: 0 4px 10px rgba(0,0,0,.10);
+}
+
+/* Bright palette applied to dots */
+.catDot[data-cat="Blessing"]{ background:#01b0f1; color:#111; border-color: rgba(0,0,0,.12); }
+.catDot[data-cat="Fellowship"]{ background:#feff01; color:#111; border-color: rgba(0,0,0,.18); }
+.catDot[data-cat="Financial"]{ background:#92d14f; color:#111; border-color: rgba(0,0,0,.12); }
+.catDot[data-cat="Health"]{ background:#ffc000; color:#111; border-color: rgba(0,0,0,.12); }
+.catDot[data-cat="Intercession"]{ background:#116aae; color:#fff; border-color: rgba(0,0,0,.14); }
+.catDot[data-cat="Spiritual"]{ background:#7f00ff; color:#fff; border-color: rgba(0,0,0,.14); }
+.catDot[data-cat="Supplication"]{ background:#ff01f5; color:#111; border-color: rgba(0,0,0,.14); }
+.catDot[data-cat="Worship"]{ background:#7f00ff; color:#fff; border-color: rgba(0,0,0,.14); }
+.catDot[data-cat="Other"]{ background:#fefffd; color:#111; border-color: rgba(0,0,0,.22); }
+
+/* Reduce older badge/pill prominence in list (still used elsewhere) */
+.badge{ display:none; }
+.pill{ display:none; }
+
+
+/* Filters: two simple buttons (Country, Category) */
+.filtersBar{ 
+  display:flex;
+  gap:12px;
+  flex-wrap:nowrap;
+  align-items:center;
+      margin: 0 0 var(--G);
+
+  margin-bottom: calc(var(--rhythm) * 0.5);
+}
+.filtersBar .filterBtn{
+  min-width: 220px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-weight: 300;
+  letter-spacing: .2px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  border: 2px solid rgba(0,0,0,.10);
+}
+.filtersBar .filterBtn.country{
+  background: rgba(31,31,31,.06);
+  color: var(--ink);
+}
+.filtersBar .filterBtn.category{
+  background: rgba(47,111,115,.12);
+  color: var(--ink);
+  border-color: rgba(47,111,115,.22);
+}
+@media (max-width: 640px){
+  .filtersBar .filterBtn{ flex: 1; min-width: 0; }
+}
+
+/* Panels */
+.panel{ position: relative; }
+.panelBox{
+  position:absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 320px;
+  max-width: min(520px, calc(100vw - 32px));
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.16);
+  padding: 12px;
+  z-index: 90;
+  display:none;
+}
+.panelBox.open{ display:block; }
+.panelTitle{
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 2px 2px 10px;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+.panelList{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  max-height: 56vh;
+  overflow:auto;
+  padding-right: 4px;
+}
+
+/* Country rows */
+.countryRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  cursor:pointer;
+  border: 2px solid rgba(0,0,0,.06);
+  background: rgba(255,255,255,.55);
+  font-family: var(--sans);
+}
+.countryRow:hover{ background: rgba(0,0,0,.03); }
+.countryRow.active{
+  border-color: rgba(107,42,50,.22);
+  background: rgba(107,42,50,.08);
+}
+
+/* Category bars (full name + color) */
+.catBar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 2px solid rgba(0,0,0,.18);
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  cursor:pointer;
+  font-family: var(--sans);
+  font-size: 20px;
+}
+.catBar .name{ font-weight: 300; }
+.catBar.active{ outline: 3px solid rgba(0,0,0,.10); outline-offset: 2px; }
+
+/* Category definition tooltip */
+.catTip{
+  margin-top: 10px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  background: rgba(31,31,31,.92);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.35;
+  display:none;
+}
+.catTip.show{ display:block; }
+.catTip .tTitle{ font-weight: 400; margin-bottom: 6px; }
+
+/* Fix6: compact filter buttons, same width, not bold */
+.filtersBar{ display:flex; justify-content:center; gap:18px; padding:10px 0 6px; }
+.filterBtn{ font-weight:400 !important; }
+.filterBtn.equal{ display:inline-flex; justify-content:center; align-items:center; white-space:nowrap; padding:10px 18px; min-height:44px; }
+
+/* FIX7: Native dropdown filters (reliable clicks) */
+.nativeFilters{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+    padding: 0 0 0;
+}
+.filterSelect{
+  font-family: var(--sans, system-ui, -apple-system, Segoe UI, Arial);
+  font-weight: 400;
+  font-size: 16px;
+  border: 2px solid rgba(0,0,0,.12);
+  border-radius: 10px;
+  background: rgba(255,255,255,.95);
+  padding: 10px 14px;
+  min-height: 44px;
+  outline: none;
+}
+.filterSelect:focus{
+  border-color: rgba(107,42,50,.55);
+  box-shadow: 0 0 0 3px rgba(107,42,50,.15);
+}
+
+/* v3.19: Use same dropdown styling in forms (Country selector) */
+.formSelect{ width:100%; }
+/* Ensure filterSelect typography matches global Manrope system */
+.filterSelect{ font-family: var(--font-base, 'Manrope', system-ui, -apple-system, Segoe UI, Arial); font-weight: var(--fw-light, 300); }
+
+/* FIX8: Native dropdowns compact + category color */
+.nativeFilters{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+    padding: 0 0 0;
+}
+.filterSelect{
+  font-family: system-ui, -apple-system, Segoe UI, Arial;
+  font-weight: 400;
+  font-size: 16px;
+  border: 2px solid rgba(0,0,0,.14);
+  border-radius: 10px;
+  background: rgba(255,255,255,.98);
+  padding: 8px 14px;
+  min-height: 40px;
+  outline: none;
+}
+.filterSelect:focus{
+  border-color: rgba(107,42,50,.55);
+  box-shadow: 0 0 0 3px rgba(107,42,50,.15);
+}
+
+/* v3.19: Use same dropdown styling in forms (Country selector) */
+.formSelect{ width:100%; }
+/* Ensure filterSelect typography matches global Manrope system */
+.filterSelect{ font-family: var(--font-base, 'Manrope', system-ui, -apple-system, Segoe UI, Arial); font-weight: var(--fw-light, 300); }
+
+/* v1.33: colored category options (best-effort across browsers) */
+.filterSelect option { padding: 6px 10px; }
+
+/* v1.35: consistent vertical rhythm between feed items */
+
+
+/* v1.36 width safety: keep feed aligned to header */
+.list{
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.item{
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* v1.37 meta layout */
+.locCluster{
+  flex: 1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap: 10px;
+  text-align:center;
+  min-width: 240px;
+}
+.dateMid{
+  flex: 0 0 auto;
+  display:inline-block;
+  min-width: 0;
+  text-align:center;
+  white-space:nowrap;
+}
+
+.feedFrame{
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.charCounter {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* v2.02 prayer detail header emphasis */
+#dWho{
+  font-weight: 300;
+  font-size: 1.25rem;
+}
+
+
+/* Prayer detail header (v2.02): name/location line should match v1 feed font */
+.whoLine{
+  font-family: var(--sans) !important;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+.dateLine{
+  font-family: var(--sans);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+
+/* -------- Request page (v2.03) -------- */
+.reqHeader{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:14px;
+}
+.hintRight{
+  font-family: var(--sans);
+  color: var(--muted);
+  font-size: 14px;
+  line-height:1.2;
+}
+
+/* 4-up grid with optional second row */
+.formGrid4{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (max-width: 980px){
+  .formGrid4{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px){
+  .formGrid4{ grid-template-columns: 1fr; }
+}
+
+.smallNote{
+  font-family: var(--sans);
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 22px; /* align with select height */
+}
+
+.reqSelect{
+  width: 100%;
+}
+
+/* Counter (always visible) */
+.charCounter{
+  text-align:right;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+
+/* Simple checkbox row */
+.checkRow{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family: var(--sans);
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* Plan layout */
+.planList{ display:flex; flex-direction:column; gap:10px; margin-top: 6px; }
+.planOption{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 12px;
+  background: rgba(255,255,255,.55);
+}
+.planOption input{ margin-top: 3px; }
+.planTitle{ font-family: var(--sans); font-weight: 300; font-size: 15px; color: var(--ink); }
+.divider{ height: 1px; background: var(--line); margin: 14px 0; }
+
+.fakeCard{ margin-top: 10px; }
+.formGrid2{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 560px){ .formGrid2{ grid-template-columns: 1fr; } }
+
+
+/* My Requests control bar */
+.myBar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.myLeft{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.prayedCount{
+  font-family: var(--sans);
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.seg{
+  display:inline-flex;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  overflow:hidden;
+  background: rgba(255,255,255,.65);
+}
+.seg button{
+  border:0;
+  background:transparent;
+  padding: 7px 10px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink);
+  cursor:pointer;
+}
+.seg button + button{ border-left: 2px solid var(--line); }
+.seg button.isOn{
+  background: rgba(0,0,0,.08);
+  font-weight: 300;
+}
+.seg.isDisabled{ opacity:.45; pointer-events:none; }
+.seg.single button{ border-left:0 !important; }
+.cardRemoved{ opacity:.70; }
+
+
+/* Archive drill-down */
+.yearGrid, .monthGrid{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+@media (max-width: 780px){ .yearGrid, .monthGrid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+.yearBtn, .monthBtn{
+  width:100%;
+  padding: 12px 10px;
+  border-radius: 14px;
+  border: 2px solid var(--line);
+  background: rgba(255,255,255,.65);
+  font-family: var(--sans);
+  font-weight: 300;
+  color: var(--ink);
+  cursor:pointer;
+}
+.monthBtn[disabled]{
+  opacity:.35;
+  cursor: default;
+}
+
+
+/* --- Navigation + mobile menu --- */
+.bottomNavInner{ flex-wrap: wrap; justify-content: center; gap: 10px; }
+.topHeaderMenu{ position: relative; }
+.kebabMenu{
+  position:absolute;
+  top:58px;
+  right:12px;
+  min-width: 180px;
+  padding: 10px;
+  border-radius: 16px;
+  border: 2px solid rgba(0,0,0,.12);
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 12px 32px rgba(0,0,0,.14);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  z-index: 50;
+}
+.kebabMenu a{
+  text-decoration:none;
+  font-family: var(--sans);
+  color: var(--ink);
+  padding: 8px 10px;
+  border-radius: 12px;
+}
+.kebabMenu a.isHere{ background: rgba(0,0,0,.08); font-weight: 300; }
+.kebabMenu a:hover{ background: rgba(0,0,0,.06); }
+
+@media (max-width: 640px){
+  .bottomNav{ display:none; }
+  }
+
+/* Request page select width to match feed filter */
+.narrowSelect{
+  width: 260px;
+  max-width: 100%;
+}
+
+/* About page helpers */
+.h3{
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  margin: 16px 0 8px;
+}
+.bullets{
+  margin: 10px 0 14px 18px;
+}
+
+.nav6{ display:grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap:10px; align-items:stretch; }
+
+/* Mobile nav: kebab menu replaces bottom nav */
+@media (max-width: 720px){
+  .bottomNav{ display:none; }
+  }
+@media (min-width: 721px){
+  .kebabMenu{ display:none !important; }
+}
+
+/* 6-button bottom nav single row */
+.bottomNavInner.nav6 .navBtn{
+  width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 14px;
+}
+@media (max-width: 980px){
+  .bottomNavInner.nav6 .navBtn{ font-size: 12px; padding-left: 6px; padding-right: 6px; }
+  .bottomNavInner.nav6{ gap:8px; }
+}
+
+.aboutCopy{ font-family: var(--sans); color: var(--ink); }
+.aboutCopy p{ font-family: var(--sans); }
+
+
+/* Mobile Home Spec (360px canvas) */
+.kebabMenu{ display:none; }
+
+@media (max-width: 768px){
+  body{ background: #f4f2ea; }
+  .container{ max-width: 360px; padding: 10px; margin: 0 auto; }
+
+  /* Hide bottom nav on mobile */
+  .bottomNav{ display:none; }
+
+  /* Header image */
+  .topHeader{ margin: 10px 10px 0 10px; }
+  .topHeader img{ width: 340px; height: 85px; object-fit: cover; border-radius: 10px; }
+
+  /* Filters row: Country / Categories / Menu */
+  .filtersBar{ display:flex; gap: 10px; justify-content: space-between; align-items:center; padding: 10px; }
+  .filterSelect, .filterBtn{
+    width: 107px;
+    height: 35px;
+    border: 2px solid rgba(0,0,0,0.25);
+    border-radius: 12px;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 24px; /* 18pt */
+    background: #ffffff;
+    color: #222;
+    padding: 0 10px;
+  }
+  .kebabMenu{
+    display:block;
+    position: absolute;
+    right: 10px;
+    top: 150px;
+    width: 160px;
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    padding: 8px;
+    z-index: 50;
+  }
+  .kebabMenu[hidden]{ display:none; }
+  .kebabMenu a{
+    display:block;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration:none;
+    color:#222;
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 18px;
+  }
+  .kebabMenu a:hover{ background: rgba(0,0,0,0.06); }
+
+  /* Feed list spacing */
+  #list{ display:flex; flex-direction:column; gap:10px; padding: 0 10px; }
+
+  /* Meta row layout to keep date + category visible */
+  .metaRow{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap:12px;
+  flex-wrap:nowrap;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 14px;
+}
+  .metaMid{ display:flex; gap: 10px; min-width: 0; }
+  .metaCity{ flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; }
+  .metaCountry{ flex: 0 0 auto; width: 32px; text-align: center; white-space: nowrap; }
+  .dateMid{
+  flex: 0 0 auto;
+  display:inline-block;
+  min-width: 0;
+  text-align:center;
+  white-space:nowrap;
+}
+
+  /* Prayer cards */
+  .item{
+    width: 340px;
+    min-height: 72px;
+    border: 4px solid #000;
+    border-radius: 12px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .letterLine{
+    font-family: var(--sans);
+    font-weight: 200;
+    font-size: 16px; /* 12pt */
+    line-height: 1.2;
+  }
+  .metaRow, .metaRow span, .metaCity, .metaCountry, .dateMid{
+  flex: 0 0 auto;
+  display:inline-block;
+  min-width: 0;
+  text-align:center;
+  white-space:nowrap;
+}
+  .metaRow{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap:12px;
+  flex-wrap:nowrap;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 14px;
+}
+
+  .catDot{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 24px; /* 18pt */
+    opacity:1;
+  }
+
+  /* Build label */
+  .buildStamp{
+    font-family: var(--sans);
+    font-weight: 200;
+    font-size: 16px; /* 12pt */
+    text-align:center;
+    margin: 20px 0 10px 0;
+  }
+}
+
+/* MOBILE META ROW FIX */
+
+@media (max-width: 768px){
+  /* Meta row layout: keep date + category visible, let city take remaining space */
+  .metaRow{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap:12px;
+  flex-wrap:nowrap;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 14px;
+}
+  .metaRow .prayedMini{ flex:0 0 auto; }
+  .metaCity{ flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; }
+  .metaCountry{ flex: 0 0 auto; width: 32px; text-align: center; white-space: nowrap; }
+  .dateMid{
+  flex: 0 0 auto;
+  display:inline-block;
+  min-width: 0;
+  text-align:center;
+  white-space:nowrap;
+}
+  .catDot{
+    flex: 0 0 auto;
+  }
+}
+
+/* MOBILE META OVERRIDE v2.20 */
+
+@media (max-width: 768px){
+  .metaRow{ gap:8px; justify-content: flex-start; }
+  .prayedMini{ flex:0 0 auto; }
+  .metaCity{ flex: 1 1 auto; text-align: right; }
+  .metaCountry{ width: 2.4em; }
+  .dateMid{ flex:0 0 auto; }
+  .catDot{ flex:0 0 auto; }
+}
+
+/* MOBILE COUNTRY CENTER v2.21 */
+
+@media (max-width: 768px){
+  .metaCountry{
+    text-align: center !important;
+    display: inline-block;
+    width: 2.4em;
+  }
+}
+
+/* MOBILE DROPDOWN + CATDOT FIX v2.22 */
+
+@media (max-width: 768px){
+  /* Dropdown pills: ensure labels fit */
+  .filterSelect{
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+    text-align-last: center;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: none;
+  }
+
+  /* Meta row: keep date + category on the right edge */
+  .metaRow{
+    justify-content: space-between;
+  }
+
+  /* Category dot: keep circle sizing and center letter */
+  .catDot{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 1;
+    margin-left: 0;
+    transform: translateY(-0.5px); /* optical centering for Manrope */
+  }
+}
+
+
+
+
+
+
+
+
+
+.filtersBar{
+    width: 340px;
+    margin: 0 auto;
+    display: grid !important;
+    grid-template-columns: 107px 107px 107px;
+    column-gap: 10px;
+    justify-content: start;
+    align-items: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+  }
+
+  .filtersBar select.filterSelect,
+  .filtersBar .filterBtn{
+    width: 107px !important;
+    min-width: 107px !important;
+    max-width: 107px !important;
+    height: 35px !important;
+    min-height: 35px !important;
+    max-height: 35px !important;
+    box-sizing: border-box;
+    border: 2px solid rgba(0,0,0,0.25);
+    border-radius: 12px;
+    background: #ffffff;
+    color: #222;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 35px;
+    padding: 0 6px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .filtersBar select.filterSelect{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: none;
+    text-align-last: center;
+  }
+
+  #kebabMenu{
+    position: absolute;
+    right: 10px;
+    top: 150px;
+    width: 160px;
+    z-index: 60;
+  }
+}
+
+
+.filtersBar{
+    width: 340px;
+    margin: 0 auto;
+    display: grid !important;
+    grid-template-columns: 107px 107px 107px;
+    column-gap: 10px;
+    justify-content: start;
+    align-items: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+  }
+
+  .filtersBar select.filterSelect,
+  .filtersBar .filterBtn{
+    width: 107px !important;
+    min-width: 107px !important;
+    max-width: 107px !important;
+    height: 35px !important;
+    min-height: 35px !important;
+    max-height: 35px !important;
+    box-sizing: border-box;
+    border: 2px solid rgba(0,0,0,0.25);
+    border-radius: 12px;
+    background: #ffffff;
+    color: #222;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 35px;
+    padding: 0 6px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .filtersBar select.filterSelect{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: none;
+    text-align-last: center;
+  }
+
+  #kebabBtn{
+    position: static !important;
+    grid-column: 3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  #kebabMenu{
+    position: absolute;
+    width: 160px;
+    z-index: 60;
+  }
+}
+
+
+/* MOBILE FILTER LOCK v2.28 */
+@media (max-width: 768px){
+  .container{ max-width: 360px; padding: 10px; margin: 0 auto; box-sizing: border-box; }
+
+  /* Left-align with header (both 340px wide inside 10px margins) */
+  .filtersBar{
+    width: 340px;
+    margin: 0;
+    display: grid !important;
+    grid-template-columns: 107px 107px 107px;
+    column-gap: 10px;
+    justify-content: start;
+    align-items: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+  }
+
+  .filtersBar select.filterSelect{
+    width: 107px !important;
+    min-width: 107px !important;
+    max-width: 107px !important;
+    height: 35px !important;
+    min-height: 35px !important;
+    max-height: 35px !important;
+    box-sizing: border-box;
+    border: 2px solid rgba(0,0,0,0.25);
+    border-radius: 12px;
+    background: #ffffff;
+    color: #222;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 35px;
+    padding: 0 6px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: none;
+    text-align-last: center;
+  }
+}
+
+/* Custom dropdown for Categories */
+.dropdownMenu{
+  background: #fff;
+  border: 2px solid rgba(0,0,0,0.25);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  padding: 6px;
+}
+.dropdownMenu button{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  padding: 10px 12px;
+  text-align: left;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.dropdownMenu button:hover{ background: rgba(0,0,0,0.06); }
+.dropdownMenu .catSwatch{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex: 0 0 14px;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+.cat-blessing{ background:#01b0ff; }
+.cat-fellowship{ background:#ffe001; }
+.cat-financial{ background:#92d14f; }
+.cat-health{ background:#ff0000; }
+.cat-intercession{ background:#116aae; }
+.cat-spiritual{ background:#7f00ff; }
+.cat-supplication{ background:#ff01f5; }
+.cat-worship{ background:#7f00ff; }
+.cat-other{ background:#dcdad4; }
+
+#categoryMenu{ position:absolute; z-index:80; width: 220px; }
+
+
+
+/* =====================================
+   Global Typography System (Manrope)
+   Version: v3.02 — Applied + Audited
+   ===================================== */
+:root{
+  --font-base: var(--sans);
+  --fw-xlight: 200;
+  --fw-light: 300;
+  --fw-regular: 400;
+
+  --fs-h1: 1.9rem;
+  --fs-h2: 1.15rem;
+  --fs-h3: 1.05rem;
+  --fs-body: 0.95rem;
+  --fs-small: 0.85rem;
+
+  --lh-tight: 1.25;
+  --lh-normal: 1.6;
+  --lh-loose: 1.65;
+}
+
+body{
+  font-family: var(--font-base);
+  font-weight: var(--fw-xlight);
+  font-size: var(--fs-body);
+  line-height: var(--lh-loose);
+}
+
+p, li{
+  font-family: var(--font-base);
+  font-weight: var(--fw-xlight);
+}
+
+strong{ font-weight: var(--fw-regular); }
+
+h1, h2, h3{
+  font-family: var(--font-base);
+  font-weight: var(--fw-light);
+}
+
+h1{ font-size: var(--fs-h1); line-height: var(--lh-tight); }
+h2{ font-size: var(--fs-h2); line-height: 1.35; letter-spacing: .01em; }
+h3{ font-size: var(--fs-h3); line-height: 1.4; }
+
+button, .btn, .navBtn, label, input, select, textarea{
+  font-family: var(--font-base);
+}
+
+button, .btn, .navBtn, label{
+  font-weight: var(--fw-light);
+  font-size: var(--fs-small);
+}
+
+.meta, .hint, .buildStamp,
+.metaRow, .metaLeft, .metaMid, .dateMid{
+  font-size: var(--fs-small);
+  font-weight: var(--fw-xlight);
+}
+
+/* Prayer feed excerpt / letter line */
+.letterLine{
+  font-size: var(--fs-body);
+  line-height: var(--lh-loose);
+  font-weight: var(--fw-xlight);
+}
+
+/* Lead paragraph utility */
+.lead{
+  font-size: 1.05rem;
+  line-height: var(--lh-normal);
+  font-weight: var(--fw-light);
+}
+
+/* =====================================
+   v3.04 — Mobile alignment + dot centering
+   ===================================== */
+@media (max-width: 768px){
+  /* 1) Filter row aligned to header edges (no extra side padding) */
+  .topHeader{ margin: 10px 0 0 0 !important; }
+  .topHeader img{ width: 100% !important; height: 85px; }
+
+  .filtersBar{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Keep feed list aligned to the same left/right as header */
+  #list{ padding-left: 0 !important; padding-right: 0 !important; }
+  .item{ width: 100% !important; max-width: 340px; }
+
+  /* 2) Category dot: restore size and optical centering for Manrope */
+  .catDot{
+    width: 28px !important;
+    height: 28px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    line-height: 1 !important;
+    transform: translateY(-0.5px);
+  }
+}
+
+
+@media (max-width: 768px){
+  /* Hide legacy topHeader anchor nav on mobile (prevents the "Home About Request..." artifact line) */
+  .topHeaderMenu > a{ display:none !important; }
+
+  /* Ensure kebab trigger is positioned over the header, not in the document flow */
+  .topHeaderMenu{ position: relative; }
+  .topHeaderMenu #kebabBtn{
+    position: absolute !important;
+    top: 92px;               /* sits just below the header image content area */
+    right: 12px;
+    width: 38px;
+    height: 32px;
+    border-radius: 10px;
+    border: 2px solid rgba(0,0,0,.25);
+    background: rgba(255,255,255,.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    font-size: 20px;
+    padding: 0;
+  }
+
+  /* Keep dropdown menu attached to the kebab button */
+  .topHeaderMenu #kebabMenu{
+    position: absolute;
+    right: 12px;
+    top: 130px;
+    width: 180px;
+    z-index: 70;
+  }
+}
+
+
+@media (max-width: 768px){
+  /* Hide legacy topHeader anchor nav on mobile (prevents the "Home About Request..." artifact line) */
+  .topHeaderMenu > a{ display:none !important; }
+
+  /* Ensure kebab trigger is positioned over the header, not in the document flow */
+  .topHeaderMenu{ position: relative; }
+  .topHeaderMenu #kebabBtn{
+    position: absolute !important;
+    top: 92px;
+    right: 12px;
+    width: 38px;
+    height: 32px;
+    border-radius: 10px;
+    border: 2px solid rgba(0,0,0,0.25);
+    background: rgba(255,255,255,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    font-size: 20px;
+  }
+
+  .topHeaderMenu #kebabMenu{
+    right: 12px;
+    top: 130px;
+    width: 180px;
+    z-index: 70;
+  }
+}
+
+/* ===== v3.05 FIX: Remove top link artifact on mobile + correct kebab button placement ===== */
+@media (max-width: 768px){
+  /* Hide legacy topHeader anchor nav on mobile (prevents the "Home About Request..." artifact line) */
+  .topHeaderMenu > a{ display:none !important; }
+
+  /* Kebab trigger should float over the header image */
+  .topHeaderMenu{ position: relative; }
+  .topHeaderMenu #kebabBtn{
+    position: absolute !important;
+    top: 92px;          /* just below the header image */
+    right: 10px;        /* align with header edge */
+    width: 38px;
+    height: 32px;
+    padding: 0;
+    border-radius: 8px;
+    border: 2px solid rgba(0,0,0,0.25);
+    background: rgba(255,255,255,0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .topHeaderMenu #kebabMenu{
+    right: 10px;
+    top: 130px;
+    width: 180px;
+    z-index: 70;
+  }
+}
+
+
+/* =====================================
+   v3.06 — MOBILE TOP HEADER NAV HIDE
+   Hides legacy anchor nav under header image on small screens
+   and keeps kebab button from creating layout artifacts.
+   ===================================== */
+@media (max-width: 700px){
+  .topHeaderMenu{
+    position: relative;
+  }
+  .topHeaderMenu > a{
+    display: none !important;
+  }
+  .topHeaderMenu img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  .kebabBtn, .kebabMenuBtn, .kebabMenu{
+    font-family: inherit;
+  }
+  .kebabBtn{
+    position:absolute;
+    left: 10px;
+    bottom: 10px;
+    z-index: 5;
+    line-height: 1;
+  }
+  .kebabMenu{
+    position:absolute;
+    left: 10px;
+    bottom: 52px;
+    z-index: 10;
+  }
+}
+
+/* v3.07: ensure hidden attribute always hides (safety) */
+[hidden]{ display:none !important; }
+
+
+
+/* v3 native header menu */
+/* Default: hide header menu row everywhere; mobile breakpoint will enable it */
+.headerMenuRow{ display:none; }
+
+@media (max-width: 520px){
+  .topHeaderMenu{ position: relative; }
+  .topHeaderMenu .kebabMenu, .topHeaderMenu .kebabBtn{ display:none !important; }
+  .topHeaderMenu .headerMenuRow{ display:flex; justify-content:flex-start; padding:0; margin:8px 0 0 0; }
+  .topHeaderMenu .headerMenuSelect{ width:107px; }
+}
+@media (min-width: 521px){
+  .topHeaderMenu .headerMenuRow{ display:none; }
+}
+
+/* v3.12: Hide the Filters-row Menu dropdown on desktop/tablet (redundant on non-mobile) */
+@media (min-width: 521px){
+  #menuSelect{ display:none !important; }
+}
+
+
+/* v3.09A: Hide header Menu dropdown on desktop (redundant with bottom nav) */
+@media (min-width: 701px){
+  .headerMenuRow{ display:none !important; }
+}
+
+/* =============================
+   ARCHIVE PICKER (Year/Month)
+   ============================= */
+.pickerDialog{border:none;padding:0;background:transparent;}
+.pickerCard{
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+  padding:16px;
+  width:min(540px, 92vw);
+}
+.pickerTitle{
+  font-weight:300;
+  font-size:1.05rem;
+  margin:6px 2px 12px 2px;
+}
+.pickerGrid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+}
+.pickerGrid.months{grid-template-columns:repeat(2, 1fr);}
+.pickerActions{display:flex;gap:10px;margin-top:14px;justify-content:flex-end;}
+
+@media (min-width: 700px){
+  .pickerGrid{grid-template-columns:repeat(4, 1fr);}
+  .pickerGrid.months{grid-template-columns:repeat(3, 1fr);}
+}
+
+/* ===============================
+   REQUEST SUBMISSION (v3.16)
+   =============================== */
+
+.requestCard{
+  padding:18px;
+}
+
+.reqTitle h2{
+  font-size:1.35rem;
+  font-weight:300;
+  margin:0;
+}
+
+.reqIdentity{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:10px;
+  margin-top:12px;
+}
+
+.idBlock{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.idLabel{
+  font-size:.85rem;
+  font-weight:300;
+  opacity:.8;
+}
+
+.idValue{
+  font-size:1.05rem;
+  font-weight:200;
+}
+
+.reqForm{
+  margin-top:14px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.formRow.col{
+  flex-direction:column;
+  align-items:stretch;
+}
+
+.formRow .label{
+  font-size:.9rem;
+  font-weight:300;
+  margin-bottom:6px;
+}
+
+.textarea{
+  width:100%;
+  resize:vertical;
+  min-height:132px;
+}
+
+.charCounter{
+  font-size:.82rem;
+  opacity:.75;
+  margin-top:6px;
+  text-align:right;
+}
+
+.reqOptionRow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.reqOptionRow input[type="checkbox"]{
+  width:18px;
+  height:18px;
+}
+
+.reqOptionRow label{
+  font-size:.95rem;
+  font-weight:200;
+}
+
+.paymentBlock{
+  padding-top:6px;
+}
+
+.paymentTitle{
+  font-size:.95rem;
+  font-weight:300;
+  margin:0 0 6px 0;
+}
+
+.paymentLine{
+  font-size:.95rem;
+  font-weight:200;
+  margin:0;
+}
+
+.reqActions{
+  display:flex;
+  gap:10px;
+  margin-top:8px;
+}
+
+.reqActions .btn{
+  flex:1;
+}
+
+.reqActions .btn.primary{
+  flex:1.2;
+}
+
+.reqCancel{
+  text-align:center;
+  margin-top:10px;
+}
+
+.reqCancel a{
+  text-decoration:none;
+  opacity:.85;
+}
+
+@media (min-width: 700px){
+  .reqIdentity{
+    grid-template-columns: 1fr 1fr;
+    gap:14px;
+  }
+  .requestCard{padding:22px;}
+}
+
+@media (max-width: 520px){
+  .reqActions{flex-direction:column;}
+  .reqActions .btn{width:100%;}
+}
+
+@media (max-width: 520px){
+  .reqActions{flex-direction:column;}
+  .reqActions .btn{width:100%;}
+}
+
+@media (min-width: 700px){
+  .reqIdentity{grid-template-columns: 1fr 1fr;}
+}
+
+/* Aliases for request form markup */
+.idGrid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px;}
+.formStack{margin-top:14px;display:flex;flex-direction:column;gap:14px;}
+.field{display:flex;flex-direction:column;}
+.checkRow{display:flex;align-items:center;gap:10px;}
+.checkRow span{font-size:.95rem;font-weight:200;}
+.payBox{padding-top:6px;}
+.payTitle{font-size:.95rem;font-weight:300;margin:0 0 6px 0;}
+.payLine{font-size:.95rem;font-weight:200;margin:0;}
+.actionsRow{display:flex;gap:10px;margin-top:8px;}
+.actionsRow .btn{flex:1;}
+.actionsRow .btn.primary{flex:1.2;}
+
+/* ===============================
+   REQUEST SUBMITTED (v3.21)
+   =============================== */
+
+.confirmCard{padding:18px;}
+
+.confirmBody{margin-top:6px;}
+
+.confirmBody p{
+  margin:0 0 10px 0;
+  font-size:0.95rem;
+  line-height:1.65;
+  font-weight:200;
+}
+
+.confirmBody p.hint{margin-top:2px;opacity:.75;}
+
+.confirmActions{margin-top:6px;justify-content:flex-start;}
+
+@media (max-width: 520px){
+  .confirmActions{flex-direction:column;}
+  .confirmActions .btn{width:100%;}
+}
+
+@media (max-width: 520px){
+  .actionsRow{flex-direction:column;}
+  .actionsRow .btn{width:100%;}
+}
+
+@media (min-width: 700px){
+  .idGrid{grid-template-columns:1fr 1fr;}
+}
+
+
+/* v3.17 — Request Auth Gate */
+.authGateActions{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:14px;
+}
+@media (min-width: 701px){
+  .authGateActions{max-width:420px;}
+  .authGateActions .btn{width:auto;}
+}
+
+
+/* v3.18 — Create Account: country + phone */
+.labelRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.phoneRow{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.phoneRow .dial{
+  width:84px;
+  text-align:center;
+}
+.phoneRow .phone{
+  flex:1;
+  min-width:0;
+}
+.phoneRow .dial.isLocked{
+  opacity:0.9;
+}
+.muted{ color: var(--muted); font-size: 12px; }
+
+/* v3.23 — form code pills (country code / dial code)
+   Note: .pill is intentionally hidden globally for non-form UI. */
+.codePill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-family: var(--sans);
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 2px solid rgba(107,42,50,.18);
+  background: rgba(255,255,255,.55);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* v3.23 — category selector with dot (matches other dropdowns) */
+.selectWithDot{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.selectWithDot .filterSelect{
+  flex:1;
+  min-width:0;
+}
+.selectWithDot .catDot{
+  flex:0 0 auto;
+  margin:0;
+}

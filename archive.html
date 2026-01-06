@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Letters 2 God • Archive</title>
+  <link rel="stylesheet" href="styles.css?v=v3.23"/>
+</head>
+<body>
+<div class="container">
+  <div class="topHeader topHeaderMenu"><img src="header.jpg" alt="Letters 2 God header" />
+      <div class="headerMenuRow">
+        <select id="headerMenuSelect" class="filterSelect headerMenuSelect" aria-label="Menu">
+          <option value=\"\" selected>Menu</option>
+          <option value=\"index.html\">Home</option>
+          <option value=\"about.html\">About</option>
+          <option value=\"gate.html\">Request</option>
+          <option value=\"archive.html\">Archive</option>
+          <option value=\"account.html\">Account</option>
+          <option value=\"contact.html\">Contact</option>
+        </select>
+      </div>
+</div>
+
+  <section class="card pad">
+    <div class="sectionTitle">
+      <h2 id="aTitle">Archive</h2>
+      <p class="hint" id="aHint"></p>
+      <div class="sectionActions">
+        <button class="btn" id="openArchivePicker" type="button">Browse by Month</button>
+      </div>
+    </div>
+
+    <div id="archiveList" class="feed" hidden></div>
+
+    <div id="archiveEmpty" class="notice" hidden>No archived requests yet.</div>
+  </section>
+</div>
+
+<!-- Archive Month/Year Picker ("new window") -->
+<div id="backdrop" class="backdrop" hidden></div>
+
+<dialog id="archivePicker" class="pickerDialog" hidden>
+  <div class="pickerCard">
+    <div class="pickerTitle" id="pickerTitle">Choose a year</div>
+    <div id="pickerYears" class="pickerGrid"></div>
+
+    <div id="pickerMonthsWrap" hidden>
+      <div class="pickerTitle">Choose a month</div>
+      <div id="pickerMonths" class="pickerGrid months"></div>
+    </div>
+
+    <div class="pickerActions">
+      <button class="btn" id="pickerBack" type="button" hidden>Back</button>
+      <button class="btn" id="pickerClose" type="button">Close</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- Reuse Prayer Detail modal so Archive items can open the same card -->
+<dialog id="detail" hidden>
+  <div class="detailCard">
+    <div class="detailTopRow">
+      <div class="detailName" id="dName">Sarah M.</div>
+      <div class="detailCount" id="dCountTop">12 prayers sent</div>
+    </div>
+    <div class="detailMeta" id="dMeta">Springfield, US · March 2, 2026</div>
+    <div class="detailCategoryRow">
+      <span class="catDot" id="dCatDot" data-cat="Health" aria-hidden="true">H</span>
+      <span class="detailCategory" id="dCategory">Health</span>
+    </div>
+    <div class="detailBody" id="dBody"></div>
+    <div class="detailActions" aria-label="Prayer actions">
+      <button class="btn primary" id="prayBtn" type="button">🙏 I prayed for this</button>
+      <button class="btn" id="homeBtn" type="button">Return to Home</button>
+    </div>
+  </div>
+</dialog>
+
+<nav class="bottomNav" aria-label="Bottom navigation">
+  <div class="bottomNavInner nav6">
+    <a class="btn navBtn" data-tone="home" href="index.html">Home</a>
+    <a class="btn navBtn" data-tone="about" href="about.html">About</a>
+    <a class="btn navBtn" data-tone="request" href="gate.html">Request</a>
+    <a class="btn navBtn act" data-tone="archive" href="archive.html">Archive</a>
+    <a class="btn navBtn" data-tone="account" href="account.html">Account</a>
+    <a class="btn navBtn" data-tone="contact" href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- Detail modal/backdrop are already in index.html; for prototype we keep Archive list clickable only if modal elements exist -->
+<script src="app.js"></script>
+<script></script>
+<script>
+  window.L2G && window.L2G.wireArchive && window.L2G.wireArchive();
+</script>
+</body>
+</html>

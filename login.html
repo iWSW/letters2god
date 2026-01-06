@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Letters 2 God • Log In</title>
+  <link rel="stylesheet" href="styles.css?v=v3.23"/>
+</head>
+<body>
+<div class="container">
+  <div class="topHeader topHeaderMenu">
+    <img src="header.jpg" alt="Letters 2 God header" />
+    <div class="headerMenuRow">
+      <select id="headerMenuSelect" class="filterSelect headerMenuSelect" aria-label="Menu">
+        <option value="" selected>Menu</option>
+        <option value="index.html">Home</option>
+        <option value="about.html">About</option>
+        <option value="gate.html">Request</option>
+        <option value="archive.html">Archive</option>
+        <option value="account.html">Account</option>
+        <option value="contact.html">Contact</option>
+      </select>
+    </div>
+  </div>
+
+  <section class="card pad">
+    <div class="sectionTitle">
+      <h2>Log In</h2>
+    </div>
+
+    <div class="formRow">
+      <div class="label">Email address</div>
+      <input id="loginEmail" class="input" autocomplete="email" inputmode="email"/>
+    </div>
+
+    <div class="formRow">
+      <div class="label">Password</div>
+      <input id="loginPass" class="input" type="password" autocomplete="current-password"/>
+    </div>
+
+    <div class="modalActions" style="margin-top:16px;">
+      <button class="btn primary" id="loginBtn" type="button">Log In</button>
+    </div>
+
+    <div class="linkRow" style="margin-top:10px;">
+      <a href="#" id="forgotLink">Forgot your password?</a>
+    </div>
+
+    <div class="divider"></div>
+    <div class="linkRow">
+      <span>Don’t have an account? </span><a href="create_account.html">Create Account</a>
+    </div>
+
+    <div id="loginNote" class="notice" hidden></div>
+  </section>
+</div>
+
+<nav class="bottomNav" aria-label="Bottom navigation">
+  <div class="bottomNavInner nav6">
+    <a class="btn navBtn" data-tone="home" href="index.html">Home</a>
+    <a class="btn navBtn" data-tone="about" href="about.html">About</a>
+    <a class="btn navBtn" data-tone="request" href="gate.html">Request</a>
+    <a class="btn navBtn" data-tone="archive" href="archive.html">Archive</a>
+    <a class="btn navBtn" data-tone="account" href="account.html">Account</a>
+    <a class="btn navBtn" data-tone="contact" href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<script src="app.js"></script>
+<script>
+  window.L2G && window.L2G.wireLogin && window.L2G.wireLogin();
+</script>
+</body>
+</html>

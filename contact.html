@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Letters 2 God • Contact</title>
+  <link rel="stylesheet" href="styles.css?v=v3.23"/>
+</head>
+<body>
+  <div class="container">
+    <div class="topHeader topHeaderMenu"><img src="header.jpg" alt="Letters 2 God header" />
+      <div class="headerMenuRow">
+        <select id="headerMenuSelect" class="filterSelect headerMenuSelect" aria-label="Menu">
+          <option value=\"\" selected>Menu</option>
+          <option value=\"index.html\">Home</option>
+          <option value=\"about.html\">About</option>
+          <option value=\"gate.html\">Request</option>
+          <option value=\"archive.html\">Archive</option>
+          <option value=\"account.html\">Account</option>
+          <option value=\"contact.html\">Contact</option>
+        </select>
+      </div>
+</div>
+
+    <section class="card pad">
+      <div class="sectionTitle">
+        <h2>Contact Us</h2>
+        <p class="hint">We read every message. If your note is about a specific request, please include any details you remember (name, city, date, or category).</p>
+      </div>
+
+      <form id="contactForm">
+        <div class="formGrid2">
+          <div class="field">
+            <div class="label">First Name</div>
+            <input id="cFirst" class="input" autocomplete="given-name"/>
+          </div>
+          <div class="field">
+            <div class="label">Last Name</div>
+            <input id="cLast" class="input" autocomplete="family-name"/>
+          </div>
+        </div>
+
+        <div class="formRow" style="margin-top:12px;">
+          <div class="label">Email Address</div>
+          <input id="cEmail" class="input" autocomplete="email" placeholder="you@example.com"/>
+        </div>
+
+        <div class="formRow" style="margin-top:12px;">
+          <div class="label">Subject</div>
+          <select id="cSubject" class="filterSelect" aria-label="Subject">
+            <option value="">Select a subject</option>
+            <option>Information</option>
+            <option>Concerns</option>
+            <option>Reporting</option>
+            <option>Account Help</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="formRow" style="margin-top:12px;">
+          <div class="label">Message</div>
+          <textarea id="cMessage" class="textarea" rows="6"></textarea>
+        </div>
+
+        <div class="modalActions" style="margin-top:16px;">
+          <button class="btn primary" type="submit">Send Message</button>
+        </div>
+
+        <div id="contactConfirm" class="notice" hidden style="margin-top:12px;">
+          <div><strong>Thank you.</strong> Your message has been received.</div>
+          <div class="small" style="margin-top:6px;">We typically respond within 24–48 hours.</div>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <nav class="bottomNav" aria-label="Bottom navigation">
+  <div class="bottomNavInner nav6">
+    <a class="btn navBtn" data-tone="home" href="index.html">Home</a>
+    <a class="btn navBtn" data-tone="about" href="about.html">About</a>
+    <a class="btn navBtn" data-tone="request" href="gate.html">Request</a>
+    <a class="btn navBtn" data-tone="archive" href="archive.html">Archive</a>
+    <a class="btn navBtn" data-tone="account" href="account.html">Account</a>
+    <a class="btn navBtn act" data-tone="contact" href="contact.html">Contact</a>
+  </div>
+</nav>
+  <script src="app.js"></script>
+  <script>
+    </script>
+</body>
+</html>

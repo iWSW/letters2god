@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Letters 2 God • Choose Plan</title>
+  <link rel="stylesheet" href="styles.css?v=v3.23"/>
+</head>
+<body>
+<div class="container">
+  <div class="topHeader topHeaderMenu"><img src="header.jpg" alt="Letters 2 God header" />
+      <div class="headerMenuRow">
+        <select id="headerMenuSelect" class="filterSelect headerMenuSelect" aria-label="Menu">
+          <option value=\"\" selected>Menu</option>
+          <option value=\"index.html\">Home</option>
+          <option value=\"about.html\">About</option>
+          <option value=\"gate.html\">Request</option>
+          <option value=\"archive.html\">Archive</option>
+          <option value=\"account.html\">Account</option>
+          <option value=\"contact.html\">Contact</option>
+        </select>
+      </div>
+</div>
+
+  <section class="card pad">
+    <div class="sectionTitle">
+      <h2>Choose a Plan</h2>
+    </div>
+
+    <div class="planList">
+      <label class="planOption">
+        <input type="radio" name="plan" value="single" checked/>
+        <div>
+          <div class="planTitle">Single Request — $0.99</div>
+          <div class="small">Pay per request, as needed.</div>
+        </div>
+      </label>
+
+      <label class="planOption">
+        <input type="radio" name="plan" value="monthly"/>
+        <div>
+          <div class="planTitle">Monthly Subscription — $4.99 / month</div>
+          <div class="small">Submit up to five requests per day.</div>
+          <div class="small">Renews automatically until canceled.</div>
+        </div>
+      </label>
+
+      <label class="planOption">
+        <input type="radio" name="plan" value="lifetime"/>
+        <div>
+          <div class="planTitle">Lifetime Subscription — $29.99</div>
+          <div class="small">Submit up to five requests per day.</div>
+          <div class="small">One-time purchase.</div>
+        </div>
+      </label>
+    </div>
+
+    <div class="divider"></div>
+
+    <div id="cardOnFile" class="notice" hidden>
+      <div><strong>Payment method on file:</strong> <span id="maskedCard">Visa •••• 1234</span></div>
+      <label class="checkRow" style="margin-top:8px;"><input id="useCardOnFile" type="checkbox" checked/> Use this card</label>
+      <button class="btn" id="useDifferentCard" type="button" style="margin-top:10px;">Use a different card</button>
+    </div>
+
+    <div id="newCard" class="notice">
+      <div style="margin-bottom:10px;"><strong>Payment</strong></div>
+      <div class="small">Secure payment handled by our payment provider.</div>
+      <div class="fakeCard">
+        <div class="formRow"><div class="label">Card number</div><input class="input" placeholder="1234 1234 1234 1234"/></div>
+        <div class="formGrid2">
+          <div class="field"><div class="label">Expiry</div><input class="input" placeholder="MM/YY"/></div>
+          <div class="field"><div class="label">CVC</div><input class="input" placeholder="CVC"/></div>
+        </div>
+      </div>
+      <label class="checkRow" style="margin-top:10px;"><input id="saveCard" type="checkbox"/> Save this card for future requests</label>
+    </div>
+
+    <div class="modalActions" style="margin-top:16px;">
+      <button class="btn primary" id="checkoutBtn" type="button">Continue to Checkout</button>
+      <a class="btn" href="index.html">Cancel</a>
+    </div>
+
+    <div id="payResult" class="notice" hidden style="margin-top:12px;"></div>
+  </section>
+</div>
+
+<nav class="bottomNav" aria-label="Bottom navigation">
+  <div class="bottomNavInner nav6">
+    <a class="btn navBtn" data-tone="home" href="index.html">Home</a>
+    <a class="btn navBtn" data-tone="about" href="about.html">About</a>
+    <a class="btn navBtn act" data-tone="request" href="gate.html">Request</a>
+    <a class="btn navBtn" data-tone="archive" href="archive.html">Archive</a>
+    <a class="btn navBtn" data-tone="account" href="account.html">Account</a>
+    <a class="btn navBtn" data-tone="contact" href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<script src="app.js"></script>
+<script></script>
+<script>
+  window.L2G && window.L2G.wirePlan && window.L2G.wirePlan();
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Letters 2 God • Payment</title>
+  <link rel="stylesheet" href="styles.css?v=v3.23"/>
+</head>
+<body>
+<div class="container">
+  <div class="topHeader topHeaderMenu">
+    <img src="header.jpg" alt="Letters 2 God header" />
+    <div class="headerMenuRow">
+      <select id="headerMenuSelect" class="filterSelect headerMenuSelect" aria-label="Menu">
+        <option value="" selected>Menu</option>
+        <option value="index.html">Home</option>
+        <option value="about.html">About</option>
+        <option value="gate.html">Request</option>
+        <option value="archive.html">Archive</option>
+        <option value="account.html">Account</option>
+        <option value="contact.html">Contact</option>
+      </select>
+    </div>
+  </div>
+
+  <section class="card pad">
+    <div class="sectionTitle">
+      <h2>Add Payment Method</h2>
+      <p class="hint">This is a beta placeholder to let you test the submission flow.</p>
+    </div>
+
+    <div class="formRow">
+      <div class="label">Card number</div>
+      <input id="cardNumber" class="input" inputmode="numeric" placeholder="1234 5678 9012 3456"/>
+    </div>
+
+    <div class="modalActions" style="margin-top:16px;">
+      <button class="btn primary" id="savePaymentBtn" type="button">Save Payment Method</button>
+      <a class="btn" href="request.html">Back to Request</a>
+    </div>
+
+    <div id="payNote" class="notice" hidden></div>
+  </section>
+</div>
+
+<nav class="bottomNav" aria-label="Bottom navigation">
+  <div class="bottomNavInner nav6">
+    <a class="btn navBtn" data-tone="home" href="index.html">Home</a>
+    <a class="btn navBtn" data-tone="about" href="about.html">About</a>
+    <a class="btn navBtn act" data-tone="request" href="gate.html">Request</a>
+    <a class="btn navBtn" data-tone="archive" href="archive.html">Archive</a>
+    <a class="btn navBtn" data-tone="account" href="account.html">Account</a>
+    <a class="btn navBtn" data-tone="contact" href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<script src="app.js"></script>
+<script>
+  window.L2G && window.L2G.wirePayment && window.L2G.wirePayment();
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Letters 2 God • Request</title>
+  <link rel="stylesheet" href="styles.css?v=v3.23"/>
+</head>
+<body>
+  <div class="container">
+    <div class="topHeader topHeaderMenu">
+      <img src="header.jpg" alt="Letters 2 God header" />
+      <!-- Mobile-only Menu dropdown (hidden on desktop via CSS) -->
+      <div class="headerMenuRow">
+        <select id="headerMenuSelect" class="filterSelect headerMenuSelect" aria-label="Menu">
+          <option value="" selected>Menu</option>
+          <option value="index.html">Home</option>
+          <option value="about.html">About</option>
+          <option value="gate.html">Request</option>
+          <option value="archive.html">Archive</option>
+          <option value="account.html">Account</option>
+          <option value="contact.html">Contact</option>
+        </select>
+      </div>
+    </div>
+
+    <main class="pageWrap">
+      <section class="card requestCard">
+        <header class="sectionTitle">
+          <h1>Request a Prayer</h1>
+        </header>
+
+        <!-- Identity (read-only) -->
+        <div class="idGrid" aria-label="Your identity">
+          <div class="idBlock">
+            <div class="idLabel">Name</div>
+            <div class="idValue" id="reqDisplayName">—</div>
+          </div>
+          <div class="idBlock">
+            <div class="idLabel">Location</div>
+            <div class="idValue" id="reqDisplayLocation">—</div>
+          </div>
+        </div>
+
+        <div class="formStack" aria-label="Prayer request form">
+          <!-- Category -->
+          <label class="field">
+            <div class="label">Prayer category</div>
+            <div class="selectWithDot">
+              <span class="catDot" id="requestCatDot" data-cat="Other" aria-hidden="true">O</span>
+              <select id="requestCategorySelect" class="filterSelect" aria-label="Prayer category"></select>
+            </div>
+          </label>
+
+          <!-- Request text -->
+          <label class="field">
+            <div class="label">Your prayer request</div>
+            <textarea id="requestText" class="textarea" rows="7" maxlength="500" placeholder="Please share your request here."></textarea>
+            <div class="charCounter" id="charCounter">0 / 500</div>
+          </label>
+
+          <!-- Optional privacy -->
+          <label class="checkRow" for="hideLocation">
+            <input id="hideLocation" type="checkbox" />
+            <span>Hide my location</span>
+          </label>
+
+          <!-- Payment (copy only; wiring later) -->
+          <div class="payBox" aria-label="Submission fee">
+            <div class="payTitle">Prayer request submission</div>
+            <div class="payLine">Submitting a prayer request costs $0.99.</div>
+            <div class="paySaved" id="paySaved" hidden></div>
+          </div>
+
+          <!-- Actions -->
+          <div class="actionsRow">
+            <button class="btn primary" id="submitBtn" type="button">Submit Prayer Request</button>
+            <a class="btn" href="index.html">Cancel and return Home</a>
+          </div>
+
+          <div id="submitNote" class="notice" hidden></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="bottomNav" aria-label="Bottom navigation">
+    <div class="bottomNavInner nav6">
+      <a class="btn navBtn" data-tone="home" href="index.html">Home</a>
+      <a class="btn navBtn" data-tone="about" href="about.html">About</a>
+      <a class="btn navBtn act" data-tone="request" href="gate.html">Request</a>
+      <a class="btn navBtn" data-tone="archive" href="archive.html">Archive</a>
+      <a class="btn navBtn" data-tone="account" href="account.html">Account</a>
+      <a class="btn navBtn" data-tone="contact" href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <script src="app.js"></script>
+  <script>
+    window.L2G && window.L2G.wireRequest && window.L2G.wireRequest();
+  </script>
+</body>
+</html>

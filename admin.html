@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Letters 2 God • Admin</title>
+  <link rel="stylesheet" href="styles.css?v=v3.23"/>
+</head><body>
+<div class="container">
+  <div class="topHeader topHeaderMenu"><img src="header.jpg" alt="Letters 2 God header" />
+      <div class="headerMenuRow">
+        <select id="headerMenuSelect" class="filterSelect headerMenuSelect" aria-label="Menu">
+          <option value=\"\" selected>Menu</option>
+          <option value=\"index.html\">Home</option>
+          <option value=\"about.html\">About</option>
+          <option value=\"gate.html\">Request</option>
+          <option value=\"archive.html\">Archive</option>
+          <option value=\"account.html\">Account</option>
+          <option value=\"contact.html\">Contact</option>
+        </select>
+      </div>
+</div>
+
+<div class="grid">
+  <section class="card pad">
+    <div class="sectionTitle"><h2>Moderation queue</h2><p class="hint">Accessed from Account (admin only).</p><p class="hint">Approve quietly. Mask quickly.</p></div>
+
+    <div class="item" style="cursor:default;">
+      <div class="itemTop">
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <span class="badge">• Supplication</span><span class="pill">paid</span><span class="pill">pending</span>
+        </div>
+        <span class="small">Dec 24, 2025</span>
+      </div>
+      <p class="preview">Requesting peace for my family during a hard conversation and healing for old hurts.</p>
+      <div class="modalActions">
+        <button class="btn primary" type="button">Approve</button>
+        <button class="btn" type="button">Reject</button>
+        <button class="btn" type="button">Mask</button>
+      </div>
+      <p class="footerNote" style="margin:10px 0 0;">UI preview: actions do not change data here.</p>
+    </div>
+  </section>
+
+  <aside class="rightStack">
+    <section class="card pad">
+      <div class="sectionTitle"><h2>Reports</h2><p class="hint">User flags (preview)</p></div>
+      <div class="notice">No open reports in sample.</div>
+      <hr class="sep"/>
+      <div class="sectionTitle"><h2>Stripe events</h2><p class="hint">Delivery health (preview)</p></div>
+      <div class="notice">Undelivered: 0<br/>Failed processing: 0</div>
+    </section>
+  </aside>
+</div>
+</div>
+
+
+<nav class="bottomNav" aria-label="Bottom navigation">
+  <div class="bottomNavInner nav6">
+    <a class="btn navBtn" data-tone="home" href="index.html">Home</a>
+    <a class="btn navBtn" data-tone="about" href="about.html">About</a>
+    <a class="btn navBtn" data-tone="request" href="gate.html">Request</a>
+    <a class="btn navBtn" data-tone="archive" href="archive.html">Archive</a>
+    <a class="btn navBtn" data-tone="account" href="account.html">Account</a>
+    <a class="btn navBtn" data-tone="contact" href="contact.html">Contact</a>
+  </div>
+</nav>
+</body></html>

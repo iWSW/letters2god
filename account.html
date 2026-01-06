@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Letters 2 God • Account</title>
+  <link rel="stylesheet" href="styles.css?v=v3.23"/>
+</head>
+<body>
+<div class="container">
+  <div class="topHeader topHeaderMenu">
+    <img src="header.jpg" alt="Letters 2 God header" />
+    
+      <div class="headerMenuRow">
+        <select id="headerMenuSelect" class="filterSelect headerMenuSelect" aria-label="Menu">
+          <option value=\"\" selected>Menu</option>
+          <option value=\"index.html\">Home</option>
+          <option value=\"about.html\">About</option>
+          <option value=\"gate.html\">Request</option>
+          <option value=\"archive.html\">Archive</option>
+          <option value=\"account.html\">Account</option>
+          <option value=\"contact.html\">Contact</option>
+        </select>
+      </div>
+</div>
+
+  <section class="card pad">
+    <div class="sectionTitle">
+      <h2>Account</h2>
+      <p class="hint" id="acctHint">Sign in to view your account.</p>
+    </div>
+
+    <div id="acctSignedOut" class="modalActions" style="margin-top:14px;">
+      <a class="btn primary" href="login.html">Sign In</a>
+      <a class="btn" href="create_account.html">Create an Account</a>
+    </div>
+
+    
+    <div id="acctSignedIn" hidden>
+      <div class="notice">
+        <div><strong id="acctEmail">you@example.com</strong></div>
+        <div class="small" id="acctPlan">Plan: —</div>
+        <div class="small" id="acctCard">Payment method: —</div>
+      </div>
+
+      <div class="modalActions" style="margin-top:12px;">
+        <a class="btn primary" href="my_requests.html">My Requests</a>
+        <button class="btn" id="managePlanBtn" type="button">Manage Subscription</button>
+      </div>
+
+      <div class="modalActions" style="margin-top:12px;">
+        <button class="btn" id="cancelPlanBtn" type="button">Cancel Subscription</button>
+        <button class="btn" id="logoutBtn" type="button">Sign Out</button>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<nav class="bottomNav" aria-label="Bottom navigation">
+  <div class="bottomNavInner nav6">
+    <a class="btn navBtn" data-tone="home" href="index.html">Home</a>
+    <a class="btn navBtn" data-tone="about" href="about.html">About</a>
+    <a class="btn navBtn" data-tone="request" href="gate.html">Request</a>
+    <a class="btn navBtn" data-tone="archive" href="archive.html">Archive</a>
+    <a class="btn navBtn act" data-tone="account" href="account.html">Account</a>
+    <a class="btn navBtn" data-tone="contact" href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<script src="app.js"></script>
+<script>
+  </script>
+</body>
+</html>
